@@ -1,23 +1,31 @@
 package main
-import "github.com/01-edu/z01"
+
+import (
+	"fmt"
+
+	"github.com/01-edu/z01"
+)
 
 func Chunk(slice []int, size int) {
-	if size <= 0 {
+	if size <= 0{
 		z01.PrintRune('\n')
 	    return
 	}
-
+	if len(slice) == 0 {
+		fmt.Println("[]")
+		return
+	}
+	var chunks [][]int
 	for i := 0; i < len(slice); i += size {
 		end := i + size
 		if end > len(slice) {
 			end = len(slice)
 		}
-		for j := i; j < end; j++ {
-			z01.PrintRune(rune(slice[j] + '0'))
-		}
-		z01.PrintRune('\n')
+		chunk := (slice[i:end])
+		chunks =  append(chunks, chunk)
 	}
-
+	
+	fmt.Println(chunks)
 }
 
 func main() {
