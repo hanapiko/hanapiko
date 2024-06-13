@@ -1,0 +1,81 @@
+package main
+
+import (
+	"asciiartoutput/functions"
+	"fmt"
+	"os"
+	"strings"
+)
+
+func main() {
+	usage := "Usage: go run . [OPTION] [STRING] [BANNER]\n\nEX: go run . --output=<fileName.txt> something standard"
+	if len(os.Args) == 1 {
+		return
+	} else if len(os.Args) > 4 {
+		fmt.Println(usage)
+		return
+	}
+
+	args := os.Args[1]
+
+	// Replaces all the new lines in the arguement with a new line
+	args = strings.ReplaceAll(args, "\n", "\\n")
+
+	if args == "\\n" {
+		// If the arguement is "\n" the program prints a new line
+		fmt.Println()
+		return
+	}
+
+	if args == "" {
+		return
+	}
+	// checking if the runes of the string is more than 126
+	for _, chr := range args {
+		if chr > '~' {
+			fmt.Println("Error : Non Ascii character found!! can not display the graphic representation")
+			return
+		}
+	}
+
+	// Variable asciiArtFile stores the value of bannerfiles
+	asciiArtFile := "standard"
+	if len(os.Args) > 2 {
+		asciiArtFile = os.Args[2]
+	}
+
+	switch asciiArtFile {
+	case "standard":
+		asciiArtFile = "standard.txt"
+	case "thinkertoy":
+		asciiArtFile = "thinkertoy.txt"
+	case "shadow":
+		asciiArtFile = "shadow.txt"
+	case "lean":
+		asciiArtFile = "lean.txt"
+	default:
+		fmt.Println(usage)
+		return
+	}
+
+	// Splitting inputArgs the string(arguement) into substrings, with a sparator "\n"
+	inputArgs := strings.Split(args, "\\n")
+	asciiArt, err := os.ReadFile(asciiArtFile)
+	if err != nil {
+		fmt.Printf("Error reading file: %q\n%v\n", asciiArtFile, err)
+		return
+	}
+
+	// Converting asciiArt from byte to strings
+	asciiArtString := string(asciiArt)
+
+	var bannerFileContents []string
+	if asciiArtFile == "thinkertoy.txt" {
+		bannerFileContents = strings.Split(asciiArtString, "\r\n")
+	} else {
+		bannerFileContents = strings.Split(asciiArtString, "\n")
+	}
+
+	output := functions.Graphic(inputArgs, bannerFileContents)
+	fmt.Print(output)
+}
