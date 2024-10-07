@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relations</title>
+    <link rel="stylesheet" type="text/css" href="/static/relation.css" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Relations</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            {{ range $location, $dates := .Locations }}
+                <div class="relation-card">
+                    <h2>{{ $location }}</h2>
+                    <ul>
+                        {{ range $dates }}
+                            <li>{{ . }}</li>
+                        {{ else }}
+                            <li>No dates available</li>
+                        {{ end }}
+                    </ul>
+                </div>
+            {{ else }}
+                <div class="relation-card">
+                    <h2>No locations available</h2>
+                </div>
+            {{ end }}
+            
+            
+            <div class="back-button-container">
+                <button class="back-button" onclick="history.back()">← Back</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

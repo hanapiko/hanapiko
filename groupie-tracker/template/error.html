@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <link rel="stylesheet" type="text/css" href="/static/error.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>ERROR</h1>
+        <img src="/static/images/error.jpeg" alt="Error Illustration" class="error-image">
+        <div class="error-code">{{.Code}}</div>
+        <div class="error-message">{{.Message}}</div>
+        <div class="back-button-container">
+            <button class="nav-button" onclick="window.history.back()">← Back</button>
+        </div>
+    </div>
+</body>
+</html>
+s

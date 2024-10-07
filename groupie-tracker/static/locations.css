@@ -1,0 +1,102 @@
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+    margin: 0;
+}
+
+h1 {
+    color: #299c1a;
+    font-size: 48px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.outer-container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #222;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+}
+
+.location-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.location-list li {
+    background-color: #333;
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Back button style */
+.back-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.back-button {
+    background-color: #144736;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #3cb923;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+    .location-list li {
+        width: 95%;
+        font-size: 20px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .outer-container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .location-list li {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .back-button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists</title>
+    <link rel="stylesheet" type="text/css" href="/static/artists.css" />
+</head>
+<body>
+    <h1>Artists</h1>
+    <div class="artists-container">
+        {{if .}}
+            {{range .}}
+                <a href="/artist/{{.ID}}">
+                    <div class="artist">
+                        <img src="{{.Image}}" alt="{{.Name}} Image">
+                        <h2>{{.Name}}</h2>
+                    </div>
+                </a>
+            {{end}}
+        {{else}}
+            <p>No artists found.</p>
+        {{end}}
+    </div>
+</body>
+</html>

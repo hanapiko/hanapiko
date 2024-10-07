@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Name}} - Artist Details</title>
+    <link rel="stylesheet" type="text/css" href="/static/artist.css" />
+</head>
+
+<body>
+    {{if .}}
+    <div class="artist">
+        <img src="{{.Image}}" alt="{{.Name}} Image">
+        <div class="details">
+            <h2>{{.Name}}</h2>
+            <p><strong>Members:</strong></p>
+            <ul class="members-list">
+                {{range .Members}}
+                <li>{{.}}</li>
+                {{end}}
+            </ul>
+            <p><strong>Creation Date:</strong> {{.CreationDate}}</p>
+            <p><strong>First Album:</strong> {{.FirstAlbum}}</p>
+
+            <div class="links">
+                <p><strong>Locations:</strong>
+                    {{if .ID}}
+                    <a href="/locations/{{.ID}}">View Locations</a>
+                    {{else}}
+                    N/A
+                    {{end}}
+                </p>
+
+                <p><strong>Dates:</strong>
+                    {{if .ID}}
+                    <a href="/dates/{{.ID}}">View Dates</a>
+                    {{else}}
+                    N/A
+                    {{end}}
+                </p>
+
+                <p><strong>Relations:</strong>
+                    {{if .ID}}
+                    <a href="/relation/{{.ID}}">View Relations</a>
+                    {{else}}
+                    N/A
+                    {{end}}
+                </p>
+                <div>
+                    <button class="back-button" onclick="history.back()">← Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <p>No artist information found.</p>
+    {{end}}
+
+</body>
+
+</html>

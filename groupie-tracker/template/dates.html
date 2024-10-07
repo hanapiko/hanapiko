@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Details</title>
+    <link rel="stylesheet" type="text/css" href="/static/dates.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Date Entries</h1>
+        <ul>
+            <li>
+                <br>
+                {{range .Dates}}{{.}}<br>{{end}}
+            </li>
+        </ul>
+        <div class="back-button-container">
+            <button class="back-button" onclick="history.back()">← Back</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 40px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #18ce21;
+    text-align: center;
+}
+
+.artists-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+    padding-bottom: 40px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.artist {
+    width: 300px; /* Larger size for the circles */
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    animation: float 4s infinite ease-in-out;
+}
+
+.artist img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.artist h2 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    font-size: 20px;
+    margin: 0;
+    color: #20a820;
+    text-transform: uppercase;
+}
+
+.artist:hover {
+    transform: scale(1.1);
+    box-shadow: 0 16px 32px rgba(32, 180, 27, 0.6);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Style the scrollbar */
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #2c641e;
+    border-radius: 20px;
+    border: 3px solid #1a1a1a;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .artist {
+        width: 250px;
+        height: 250px;
+    }
+    h1 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .artist {
+        width: 200px;
+        height: 200px;
+    }
+    h1 {
+        font-size: 32px;
+        margin: 30px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .artist {
+        width: 150px;
+        height: 150px;
+    }
+    h1 {
+        font-size: 24px;
+        margin: 20px 0;
+    }
+
+    .artist h2 {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Details</title>
+    <link rel="stylesheet" type="text/css" href="/static/locations.css" />
+</head>
+<body>
+    <h1>Location Details</h1>
+    <div class="outer-container">
+        <ul class="location-list">
+            {{range .Locations}}
+                <li>{{.}}</li>
+            {{else}}
+                <li>No locations available</li>
+            {{end}}
+        </ul>
+        <!-- Centered Back button -->
+        <div class="back-button-container">
+            <button class="back-button" onclick="history.back()">← Back</button>
+        </div>
+    </div>
+</body>
+</html>
